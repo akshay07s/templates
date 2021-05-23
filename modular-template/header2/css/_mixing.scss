@@ -1,0 +1,15 @@
+@mixin gridCenter {
+    display: grid;
+    place-content: center;
+}
+
+@mixin backImgCoverCenter {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+@mixin widthHeight {
+    width: 100%;
+    height: 100%;
+}
