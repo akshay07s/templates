@@ -40,16 +40,19 @@ body {
   content: 'intro';
 }
 
-.header6 nav .menu_container {
-  float: right;
+.header6 .menu_container {
   background-color: #ffffff;
   width: 60px;
-  height: 100%;
+  height: 60px;
   padding: 1rem;
   cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 4;
 }
 
-.header6 nav .menu_container .menu_button {
+.header6 .menu_container .menu_button {
   height: 100%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -61,7 +64,7 @@ body {
   width: 80px;
   background-color: #00000070;
   height: 60%;
-  z-index: 1;
+  z-index: 3;
   position: absolute;
   top: 50%;
   -webkit-transform: translate(-80px, -50%);
@@ -245,6 +248,82 @@ body {
   cursor: pointer;
 }
 
+.header6 .popup_container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 10;
+}
+
+.header6 .popup_container .popup_content {
+  position: relative;
+  height: 80%;
+  width: 80%;
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 4ch;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header6 .popup_container .popup_content .close_button_contact {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.header6 .popup_container .popup_content .close_button_portfolio {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.header6 .popup_container .popup_content .close_button_job {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.header6 .popup_container .popup_content .close_button_about {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.header6 .contact {
+  display: none;
+}
+
+.header6 .portfolio {
+  display: none;
+}
+
+.header6 .job {
+  display: none;
+}
+
+.header6 .about {
+  display: none;
+}
+
 @media (max-width: 992px) {
   .header6 .slider_container .slider_content .slider_slides .image_container {
     width: 40%;
@@ -293,8 +372,8 @@ body {
     font-size: 2.5ch;
   }
   .header6 .menu_click {
-    -webkit-transform: translate(-60px, 0);
-            transform: translate(-60px, 0);
+    -webkit-transform: translate(0px, 0);
+            transform: translate(0px, 0);
     display: -ms-grid;
     display: grid;
   }

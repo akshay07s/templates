@@ -42,3 +42,32 @@ const changeSlide = (direction) => {
 
     slidercontent.style.transform = `translateY(-${activeSlideIndex * sliderHeight}px)`;
 };
+
+// popup Windows
+document.getElementById("contact").addEventListener("click",function(){
+    document.querySelector(".contact").style.display="flex";
+})
+document.querySelector(".close_button_contact").addEventListener("click",function(){
+    document.querySelector(".contact").style.display="none";
+})
+
+document.getElementById("portfolio").addEventListener("click", function () {
+    document.querySelector(".portfolio").style.display = "flex";
+})
+document.querySelector(".close_button_portfolio").addEventListener("click", function () {
+    document.querySelector(".portfolio").style.display = "none";
+})
+
+document.getElementById("job").addEventListener("click", function () {
+    document.querySelector(".job").style.display = "flex";
+})
+document.querySelector(".close_button_job").addEventListener("click", function () {
+    document.querySelector(".job").style.display = "none";
+})
+
+document.getElementById("about").addEventListener("click", function () {
+    document.querySelector(".about").style.display = "flex";
+})
+document.querySelector(".close_button_about").addEventListener("click", function () {
+    document.querySelector(".about").style.display = "none";
+})
