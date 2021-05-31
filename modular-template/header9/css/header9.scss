@@ -1,0 +1,303 @@
+@import './mixing';
+@import './variables';
+
+body{
+    height: 100vh;
+    background-color: rgb(158, 158, 158);
+    font-family: $fontDefault;
+}
+.header9{
+    @include widthHeight;
+    background-color: $backgroundColor;
+    nav {
+        position: absolute;
+        top: 0;
+        height: $navHeight;
+        width: 100%;
+        z-index: 2;
+        .navComponents{
+            float: left;
+            height: 100%;
+            width: 100px;
+        }
+        .navleft{
+            float: left;
+            height: 100%;
+            width: $logoWidth;
+            background-color: $logoBackgroundColor;
+            font-size: $logoFontSize;
+            color: $logoColor;
+            display: grid;
+            place-content: center;
+            &::after{
+                content: 'intro';
+            }
+        }
+    }
+        
+    .menu_container{
+        background-color: $logoBackgroundColor;
+        width: 60px;
+        height: 60px;
+        padding: 1rem;
+        cursor: pointer;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 4;
+        .menu_button{
+            @include widthHeight;
+            @include backImgCoverCenter;
+            background-image: url("../img/menu.svg");
+        }
+    }
+    
+    .menu_content {
+        width: 80px;
+        background-color: #00000070;
+        height: 60%;
+        z-index: 3;
+        position: absolute;
+        top: 50%;
+        transform: translate(-80px,-50%);
+        transition: all 0.2s;
+        @include gridCenter;
+        grid-template-columns: 100%;
+        .item{
+            display: grid;
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            font-size: 2ch;
+            a{
+                color: rgb(255, 255, 255);
+                &:hover{
+                    text-decoration: none;
+                    color: #dfdfdf;
+                }
+            }
+        }
+    }
+    .menu_click{ 
+        transform: translate(0,-50%);
+    }
+    .slider_container{
+        height: 100%;
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+        .slider_content{
+            height: 100%;
+            width: 100%;
+            top:0;
+            position: relative;
+            transition: all 0.2s;
+            .slider_slides{
+                height: 100%;
+                width: 100%;
+                position: relative;
+                .text_container{
+                    position: absolute;
+                    width: 70%;
+                    display: grid;
+                    text-align: center;
+                    @include centerElement;
+                    .header_text{
+                        color: #000000;
+                        font-size: 6ch;
+                    }
+                    .line_text{
+                        height: 60px;
+                        width: 40px;
+                        margin: auto;
+                        display: flex;
+                        align-items: center;
+                        &::before{
+                            height: 4px;
+                            width: 100%;
+                            content: "";
+                            background-color: rgb(255, 94, 0);
+                        }
+                    }
+                    .para_text{
+                        font-size: 2ch;
+                    }
+                }
+                .bottom_box{
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    height: 40px;
+                    width: 200px;
+                    display: grid;
+                    text-align: center;
+                    align-content: center;
+                    transform: translateX(-50%);
+                    font-size: 2ch;
+                    background-color: rgb(255, 94, 0);
+                    color: #ffffff;
+                    &:hover{
+                        text-decoration: none;
+                    }
+                }
+            }        
+        }
+    }
+    .slider_buttons{
+        .left_button{
+            background-image: url("../img/left-arrow.svg");
+            background-color: #000000;
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            height: 3rem;
+            width: 3rem;
+            @include backImgCoverCenter;
+            cursor: pointer;
+        }
+        .right_button{
+            background-image: url("../img/right-arrow.svg");
+            background-color: #000000;
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            height: 3rem;
+            width: 3rem;
+            @include backImgCoverCenter;
+            cursor: pointer;
+        }
+    }
+    .slider_dots{
+        position: absolute;
+        top: 50%;
+        display: block;
+        transform: translateY(-50%);
+        right: 60px;
+        ul{
+            list-style: none;
+            .dot{
+                padding: 10px 0;
+                position: relative;
+                &::before{
+                    content: "";
+                    display: block;
+                    border-radius: 50%;
+                    height: 10px;
+                    width: 10px;
+                    background-color: #f0ffff;
+                }
+            }
+            .dot_active{
+                &::before{
+                    background-color: rgb(255, 120, 0);
+                }
+            }
+        }
+    }
+    .popup_container{
+        @include widthHeight;
+        position: absolute;
+        top: 0;
+        left: 0;
+        justify-content: center;
+        align-items: center;
+        z-index: 10;
+        .popup_content{
+            position: relative;
+            height: 80%;
+            width: 80%;
+            background-color: rgb(255, 255, 255);
+            font-size: 4ch;
+            @include gridCenter;
+            .close_button_contact{
+                @include closeButton;
+            }
+            .close_button_portfolio{
+                @include closeButton;
+            }
+            .close_button_job{
+                @include closeButton;
+            }
+            .close_button_about{
+                @include closeButton;
+            }
+        }
+    }
+    .contact{
+        display: none;
+    }
+    .portfolio{
+        display: none;
+    }
+    .job{
+        display: none;
+    }
+    .about{
+        display: none;
+    }
+}
+
+// @media (max-width:992px) {
+//
+// }
+
+@media (max-width:768px) {
+    .header9{
+        .slider_container{
+            .slider_content{
+                .slider_slides{
+                    .text_container{
+                        width: 80%;
+                        .header_text{
+                            font-size: 5ch;
+                        }
+                    }
+                }
+            }
+        }
+        .slider_dots{
+            right: 30px;
+        }
+    }
+}
+
+@media (max-width:576px) {
+    .header9{
+        .slider_container{
+            .slider_content{
+                .slider_slides{
+                    .text_container{
+                        .header_text{
+                            font-size: 4ch;
+                        }
+                        .para_text{
+                            font-size: 1.7ch;
+                        }
+                    }
+                    .bottom_box{
+                        width: 150px;
+                    }
+                }
+            }
+        }
+        .menu_content{
+            right: 0;
+            width: 240px;
+            height: 320px;
+            top: 0;
+            transform: translate(240px,0);
+            display: none;
+            .item{
+                transform: rotate(0);
+                writing-mode: horizontal-tb;
+                font-size: 2.5ch;
+            }
+        }
+        .menu_click{
+            transform: translate(0px,0);
+            display: grid;
+        }
+        .slider_dots{
+            right: 10px;
+        }
+    }
+}
