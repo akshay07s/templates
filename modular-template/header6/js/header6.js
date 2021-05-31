@@ -9,38 +9,44 @@ menuBtn.addEventListener('click', () => {
     }
 })
 
+// click function 10sec
+setInterval(function () {
+    rightButton.click()
+}, 10000);
 
+// slider updown movement
 const sliderContainer = document.querySelector(".slider_container");
 const slidercontent = document.querySelector(".slider_content");
 const leftButton = document.querySelector(".left_button");
 const rightButton = document.querySelector(".right_button");
 const lengthSlide = slidercontent.querySelectorAll(".slider_slides").length;
+const activeDot = document.getElementById("dots");
 
-console.log(lengthSlide);
 
+// slider
 let activeSlideIndex=0;
-
+let activeDotIndex=0;
 rightButton.addEventListener('click',()=> changeSlide('up'));
-
 leftButton.addEventListener('click', () => changeSlide('down'));
 
 const changeSlide = (direction) => {
     const sliderHeight = sliderContainer.clientHeight;
-    console.log(sliderHeight);
     if (direction === "up"){
-        activeSlideIndex++
+        activeSlideIndex++;
         if (activeSlideIndex > lengthSlide -1){
             activeSlideIndex=0;
         }
     }
     else if(direction === "down"){
-        activeSlideIndex--
+        activeSlideIndex--;
         if (activeSlideIndex < 0){
             activeSlideIndex=  lengthSlide-1;
         }
     }
-
+    activeDot.children[activeDotIndex].className = "dot";
+    activeDot.children[activeSlideIndex].className = "dot dot_active";
     slidercontent.style.transform = `translateY(-${activeSlideIndex * sliderHeight}px)`;
+    activeDotIndex = activeSlideIndex;
 };
 
 // popup Windows
