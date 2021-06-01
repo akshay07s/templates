@@ -9,6 +9,22 @@ body{
 .header9{
     @include widthHeight;
     background-color: $backgroundColor;
+    .circle{
+        @include widthHeight;
+        overflow-x: hidden;
+        position: absolute;
+        &::before{
+            height: 100%;
+            width: 100vh;
+            content: "";
+            display: block;
+            position: absolute;
+            top: -15%;
+            right: -15%;
+            background-color: rgba(40, 200, 250, 0.5);
+            border-radius: 50%;
+        }
+    }
     nav {
         position: absolute;
         top: 0;
@@ -205,7 +221,7 @@ body{
             position: relative;
             height: 80%;
             width: 80%;
-            background-color: rgb(255, 255, 255);
+            background-color: rgb(122, 122, 122);
             font-size: 4ch;
             @include gridCenter;
             .close_button_contact{
