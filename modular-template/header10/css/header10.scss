@@ -1,0 +1,210 @@
+@import './mixing';
+@import './variables';
+
+body{
+    height: 100vh;
+    background-color: rgb(158, 158, 158);
+    font-family: $fontDefault;
+}
+.header10{
+    @include widthHeight;
+    background-color: $backgroundColor;
+    overflow-x: hidden;
+    nav {
+        position: absolute;
+        top: 0;
+        height: $navHeight;
+        width: 100%;
+        z-index: 2;
+        overflow-x: hidden;
+        .navleft{
+            float: left;
+            height: 100%;
+            width: $logoWidth;
+            background-color: $logoBackgroundColor;
+            font-size: $logoFontSize;
+            color: $logoColor;
+            display: grid;
+            place-content: center;
+            &::after{
+                content: 'intro';
+            }
+        }
+        .menu_content {
+            width: 320px;
+            background-color: #00000070;
+            height: 60px;
+            z-index: 3;
+            position: relative;
+            float: right;
+            top: 0;
+            right: 0;
+            transform: translate(320px,0);
+            transition: all 0.2s;
+            @include gridCenter;
+            grid-template-columns: 25% 25% 25% auto;
+            .item{
+                display: grid;
+                font-size: 2ch;
+                a{
+                    color: rgb(255, 255, 255);
+                    &:hover{
+                        text-decoration: none;
+                        color: #dfdfdf;
+                    }
+                }
+            }
+        }
+        .menu_click{ 
+            transform: translate(-60px,0);
+        }
+    }
+        
+    .menu_container{
+        background-color: $logoBackgroundColor;
+        width: 60px;
+        height: 60px;
+        padding: 1rem;
+        cursor: pointer;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 4;
+        .menu_button{
+            @include widthHeight;
+            @include backImgCoverCenter;
+            background-image: url("../img/menu.svg");
+        }
+    }
+    
+    .slider_container{
+        height: 100%;
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+        .slider_items{
+            height:100vh;
+            width: 100%;
+            .slider_image{
+                @include widthHeight;
+                position: relative;
+            }
+            .image0{
+                &::before{
+                    content: "";
+                    @include widthHeight;
+                    display: block;
+                    background-image: url(https://source.unsplash.com/600x900/?lake);
+                    @include backImgCoverCenter;
+                }
+            }
+            .image1{
+                &::before{
+                    content: "";
+                    @include widthHeight;
+                    display: block;
+                    background-image: url(https://source.unsplash.com/600x900/?building);
+                    @include backImgCoverCenter;
+                }
+            }
+            .image2{
+                &::before{
+                    content: "";
+                    @include widthHeight;
+                    display: block;
+                    background-image: url(https://source.unsplash.com/600x900/?sky);
+                    @include backImgCoverCenter;
+                }
+            }
+            .image3{
+                &::before{
+                    content: "";
+                    @include widthHeight;
+                    display: block;
+                    background-image: url(https://source.unsplash.com/600x900/?beach);
+                    @include backImgCoverCenter;
+                }
+            }
+            .image4{
+                &::before{
+                    content: "";
+                    @include widthHeight;
+                    display: block;
+                    background-image: url(https://source.unsplash.com/600x900/?art);
+                    @include backImgCoverCenter;
+                }
+            }
+            .slider_text_content{
+                position: absolute;
+                bottom: 5%;
+                width: inherit;
+                padding: 0 25px;
+                .slider_text{
+                    font-size: 3ch;
+                    color: #ffffff;
+                }
+                .right_arrow{
+                    background-image: url("../img/right-arrow.svg");
+                    @include backImgCoverCenter;
+                    float: left;
+                    height: 3rem;
+                    width: 3rem;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+// @media (max-width:992px) {
+//
+// }
+
+// @media (max-width:768px) {
+//     .header10{
+//         .slider_container{
+//             .slider_items{
+//                 .slider_text_content{
+//                     .slider_text{
+//                         font-size: 2.5ch;
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
+
+@media (max-width:576px) {
+    .header10{
+        .slider_container{
+            .slider_items{
+                .slider_text_content{
+                    padding: 0 10px;
+                    .slider_text{
+                        font-size: 2.5ch;
+                    }
+                }
+            }
+        }
+        nav{
+            overflow-x: unset;
+            .menu_content{
+                right: 0;
+                width: 240px;
+                height: 320px;
+                top: 0;
+                transform: translate(240px,0);
+                grid-template-rows: 25% 25% 25% auto;
+                grid-template-columns: 100%;
+                display: none;
+                .item{
+                    font-size: 2.5ch;
+                }
+            }
+            .menu_click{
+                transform: translate(0px,0);
+                display: grid;
+            }
+        }
+    }
+}
